@@ -1,0 +1,27 @@
+name: fpp
+base: core18
+version: git
+summary: Select files out of bash output
+description: |
+  Facebook PathPicker is a simple command line tool that solves the perpetual
+  problem of selecting files out of bash output. PathPicker will:
+
+  * Parse all incoming lines for entries that look like files
+  * Present the piped input in a convenient selector UI
+  * Allow you to either:
+      * Edit the selected files in your favorite $EDITOR
+      * Execute an arbitrary command with them
+
+grade: stable
+confinement: classic
+
+parts:
+  fpp:
+    plugin: dump
+    source: .
+    stage-packages:
+      - python3
+
+apps:
+  fpp:
+    command: fpp
